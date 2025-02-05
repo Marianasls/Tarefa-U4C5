@@ -28,37 +28,37 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(clock-timer C CXX ASM)
+project(periodic_timer C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(clock-timer clock-timer.c )
+add_executable(periodic_timer periodic_timer.c )
 
-pico_set_program_name(clock-timer "clock-timer")
-pico_set_program_version(clock-timer "0.1")
+pico_set_program_name(periodic_timer "periodic_timer")
+pico_set_program_version(periodic_timer "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(clock-timer 0)
-pico_enable_stdio_usb(clock-timer 0)
+pico_enable_stdio_uart(periodic_timer 0)
+pico_enable_stdio_usb(periodic_timer 0)
 
 # Add the standard library to the build
-target_link_libraries(clock-timer
+target_link_libraries(periodic_timer
         pico_stdlib)
 
 # Add the standard include files to the build
-target_include_directories(clock-timer PRIVATE
+target_include_directories(periodic_timer PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(clock-timer 
+target_link_libraries(periodic_timer 
         hardware_timer
         hardware_clocks
         
         )
 
-pico_add_extra_outputs(clock-timer)
+pico_add_extra_outputs(periodic_timer)
 
