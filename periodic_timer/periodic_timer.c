@@ -26,7 +26,7 @@ void turn_on_leds(int color_id);
 int main() {
     // inicializa todos os pinos utilizados
     init_all_pins();
-    // Atividade 1
+    // Adiciona temporizador periodico. A função de callback será acionada a cada 3000ms
     struct repeating_timer timer;
     add_repeating_timer_ms(3000, repeating_timer_callback, NULL, &timer);
 
